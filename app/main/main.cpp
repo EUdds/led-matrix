@@ -3,17 +3,34 @@
 #include <string.h>
 #include <Logger.hpp>
 
+Logger logger("main");
+
+int setup()
+{
+    // Initialize the logger
+    logger.setLogLevel(spdlog::level::debug);
+    logger.setLogFile("log.txt");
+
+    return 1;
+}
+
+void loop()
+{
+    logger.info("Poke");
+    sleep(1);
+}
+
 
 int main(int argc, char* argv[])
 {
-    Logger logger;
-
-    logger.setLogLevel(spdlog::level::debug);
-    logger.setLogFile("log.txt");
-    logger.info("This is an info message.");
-    logger.warn("This is a warning message.");
-    logger.error("This is an error message.");
-    logger.fatal("This is a fatal message.");
-    logger.debug("This is a debug message.");
+    if (!setup())
+    {
+        logger.error("Setup failed");
+        return -1;
+    }
+    while (1)
+    {
+        loop();
+    }
     return 0;
 }

@@ -5,19 +5,19 @@
 
 class Logger {
 public:
-    Logger();
+    Logger(const std::string& loggerName);
     ~Logger();
 
-    static void setLogLevel(spdlog::level::level_enum level);
-    static void setLogFile(const std::string& filename);
-    
-    static void debug(const std::string& message);
-    static void info(const std::string& message);
-    static void warn(const std::string& message);
-    static void error(const std::string& message);
-    static void fatal(const std::string& message);
+    void setLogLevel(spdlog::level::level_enum level);
+    void setLogFile(const std::string& filename);
+    void debug(const std::string& message);
+    void info(const std::string& message);
+    void warn(const std::string& message);
+    void error(const std::string& message);
+    void fatal(const std::string& message);
 
 private:
     static std::shared_ptr<spdlog::logger> logger;
     static std::shared_ptr<spdlog::logger> file_logger;
+    const std::string loggerName_;
 };

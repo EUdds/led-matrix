@@ -1,0 +1,27 @@
+[2025-03-22 23:52:58.769] [info] This is an info message.
+[2025-03-22 23:52:58.769] [warning] This is a warning message.
+[2025-03-22 23:52:58.769] [error] This is an error message.
+[2025-03-22 23:52:58.769] [critical] This is a fatal message.
+[2025-03-22 23:53:55.066] [info] This is an info message.
+[2025-03-22 23:53:55.066] [warning] This is a warning message.
+[2025-03-22 23:53:55.066] [error] This is an error message.
+[2025-03-22 23:53:55.066] [critical] This is a fatal message.
+[2025-03-22 23:56:55.308] [info] This is an info message.
+[2025-03-22 23:56:55.308] [warning] This is a warning message.
+[2025-03-22 23:56:55.308] [error] This is an error message.
+[2025-03-22 23:56:55.308] [critical] This is a fatal message.
+[2025-03-22 23:57:42.963] [file_logger] [info] This is an info message.
+[2025-03-22 23:57:42.963] [file_logger] [warning] This is a warning message.
+[2025-03-22 23:57:42.963] [file_logger] [error] This is an error message.
+[2025-03-22 23:57:42.963] [file_logger] [critical] This is a fatal message.
+[2025-03-22 23:57:42.963] [file_logger] [debug] This is a debug message.
+[2025-03-23 00:04:50.171] [file_logger] [info] This is an info message.
+[2025-03-23 00:04:50.171] [file_logger] [warning] This is a warning message.
+[2025-03-23 00:04:50.171] [file_logger] [error] This is an error message.
+[2025-03-23 00:04:50.171] [file_logger] [critical] This is a fatal message.
+[2025-03-23 00:04:50.171] [file_logger] [debug] This is a debug message.
+[2025-03-23 15:40:13.704] [file_logger] [info] This is an info message.
+[2025-03-23 15:40:13.704] [file_logger] [warning] This is a warning message.
+[2025-03-23 15:40:13.704] [file_logger] [error] This is an error message.
+[2025-03-23 15:40:13.704] [file_logger] [critical] This is a fatal message.
+[2025-03-23 15:40:13.704] [file_logger] [debug] This is a debug message.

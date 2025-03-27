@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Parse the command from the first argument
+COMMAND=$1
+
+if [ "$COMMAND" = "setup" ]; then
+    # Get the current user's UID and GID
+    USER_ID=$(id -u)
+    GROUP_ID=$(id -g)
+
+    # Build the Docker image
+    docker build \
+        --build-arg USER_ID=$USER_ID \
+        --build-arg GROUP_ID=$GROUP_ID \
+        --platform linux/arm64 \
+        -t led-matrix-builder .
+
+elif [ "$COMMAND" = "run" ]; then
+    # Run the container with mounted workspace
+    docker run -it --rm \
+        --platform linux/arm64 \
+        -v $(pwd):/workspace \
+        -w /workspace \
+        led-matrix-builder bash
+
+elif [ "$COMMAND" = "deploy" ]; then
+    # Deploy the application to the Raspberry Pi
+    cp bazel-bin/app/main/main /tmp/main
+    scp /tmp/main eric@rpi5.attlocal.net:~
+
+elif [ "$COMMAND" = "build" ]; then
+    bazel build //app/main:main
+
+elif [ "$COMMAND" = "build-and-deploy" ]; then
+    $0 build && $0 deploy
+
+else
+    echo "Usage: ./run-dev.sh [build|run]"
+fi

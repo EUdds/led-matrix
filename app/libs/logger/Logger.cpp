@@ -6,9 +6,10 @@
 std::shared_ptr<spdlog::logger> Logger::logger = nullptr;
 std::shared_ptr<spdlog::logger> Logger::file_logger = nullptr;
 
-Logger::Logger() {
+Logger::Logger(const std::string& loggerName): loggerName_(loggerName)
+{
     if (!logger) {
-        logger = spdlog::stdout_color_mt("console");
+        logger = spdlog::stdout_color_mt(this->loggerName_);
         logger->set_pattern("[%Y-%m-%d %H:%M:%S.%e] [%^%l%$] %v");
         logger->set_level(spdlog::level::info);
     }
@@ -30,7 +31,7 @@ void Logger::setLogFile(const std::string& filename) {
     auto rotating_sink = std::make_shared<spdlog::sinks::rotating_file_sink_mt>(
         filename, 1024 * 1024 * 5, 3
     );
-    file_logger = std::make_shared<spdlog::logger>("file_logger", rotating_sink);
+    file_logger = std::make_shared<spdlog::logger>(this->loggerName_, rotating_sink);
     if (logger) 
     {
         file_logger->set_level(logger->level());

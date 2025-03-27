@@ -16,8 +16,6 @@ RUN apt-get update && apt-get install -y \
     python3 \
     zip \
     unzip \
-    gcc \
-    g++ \
     && rm -rf /var/lib/apt/lists/*
 
 RUN groupadd -g ${GROUP_ID} dev && \

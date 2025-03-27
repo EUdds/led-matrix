@@ -34,3 +34,5 @@
 # Bazel
 # Build output
 bazel-*
+
+deploy/deploy_rsa
