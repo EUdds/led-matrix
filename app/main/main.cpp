@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <Logger.hpp>
+#include "app/libs/ws2812/neopixel.h"
 
 Logger logger("main");
 
@@ -10,6 +11,8 @@ int setup()
     // Initialize the logger
     logger.setLogLevel(spdlog::level::debug);
     logger.setLogFile("log.txt");
+
+    init_neopixels();
 
     return 1;
 }
